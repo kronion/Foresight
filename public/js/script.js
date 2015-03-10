@@ -243,3 +243,14 @@ function updateArc(d) {
 }
 
 d3.select(self.frameElement).style("height", margin.top + margin.bottom + "px");
+
+// Date formatting
+var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1;
+var yyyy = today.getFullYear();
+var dateString = "Today is " + monthNames[mm] + " " + dd + ", " + yyyy;
+document.getElementById("header").children[1].innerText = dateString;
