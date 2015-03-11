@@ -1,0 +1,138 @@
+{
+ "name": "flare",
+ "description": "flare",
+ "children": [
+  {
+   "name": "analytic",
+   "description": "analytics",
+   "children": [
+    {
+     "name": "cluster",
+     "description": "cluster",
+     "children": [
+      {"name": "Agglomer", "description": "AgglomerativeCluster", "size": 3938},
+      {"name": "Communit", "description": "CommunityStructure", "size": 3812},
+      {"name": "Hierarch", "description": "HierarchicalCluster", "size": 6714},
+      {"name": "MergeEdg", "description": "MergeEdge", "size": 743}
+     ]
+    },
+    {
+     "name": "graph",
+     "description": "graph",
+     "children": [
+      {"name": "Betweenn", "description": "BetweennessCentrality", "size": 3534},
+      {"name": "LinkDist", "description": "LinkDistance", "size": 5731},
+      {"name": "MaxFlowM", "description": "MaxFlowMinCut", "size": 7840},
+      {"name": "Shortest", "description": "ShortestPaths", "size": 5914},
+      {"name": "Spanning", "description": "SpanningTree", "size": 3416}
+     ]
+    },
+    {
+     "name": "optimiza",
+     "description": "optimization",
+     "children": [
+      {"name": "AspectRa", "description": "AspectRatioBanker", "size": 7074}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "animate",
+   "description": "animate",
+   "children": [
+    {"name": "Easing", "description": "Easing", "size": 17010},
+    {"name": "Function", "description": "FunctionSequence", "size": 5842},
+    {
+     "name": "interpol",
+     "description": "interpolate",
+     "children": [
+      {"name": "ArrayInt", "description": "ArrayInterpolator", "size": 1983},
+      {"name": "ColorInt", "description": "ColorInterpolator", "size": 2047},
+      {"name": "DateInte", "description": "DateInterpolator", "size": 1375},
+      {"name": "Interpol", "description": "Interpolator", "size": 8746},
+      {"name": "MatrixIn", "description": "MatrixInterpolator", "size": 2202},
+      {"name": "NumberIn", "description": "NumberInterpolator", "size": 1382},
+      {"name": "ObjectIn", "description": "ObjectInterpolator", "size": 1629},
+      {"name": "PointInt", "description": "PointInterpolator", "size": 1675},
+      {"name": "Rectangl", "description": "RectangleInterpolator", "size": 2042}
+     ]
+    },
+    {"name": "ISchedul", "description": "ISchedulable", "size": 1041},
+    {"name": "Parallel", "description": "Parallel", "size": 5176},
+    {"name": "Pause", "description": "Pause", "size": 449},
+    {"name": "Schedule", "description": "Scheduler", "size": 5593},
+    {"name": "Sequence", "description": "Sequence", "size": 5534},
+    {"name": "Transiti", "description": "Transition", "size": 9201},
+    {"name": "Transer", "description": "Transitioner", "size": 19975},
+    {"name": "TransEve", "description": "TransitionEvent", "size": 1116},
+    {"name": "Tween", "description": "Tween", "size": 6006}
+   ]
+  },
+  {
+   "name": "collin",
+   "description": "analytics",
+   "children": [
+    {
+     "name": "cluster",
+     "description": "cluster",
+     "children": [
+      {"name": "Agglomer", "description": "AgglomerativeCluster", "size": 3938},
+      {"name": "Communit", "description": "CommunityStructure", "size": 3812},
+      {"name": "Hierarch", "description": "HierarchicalCluster", "size": 6714},
+      {"name": "MergeEdg", "description": "MergeEdge", "size": 743}
+     ]
+    },
+    {
+     "name": "graph",
+     "description": "graph",
+     "children": [
+      {"name": "Betweenn", "description": "BetweennessCentrality", "size": 3534},
+      {"name": "LinkDist", "description": "LinkDistance", "size": 5731},
+      {"name": "MaxFlowM", "description": "MaxFlowMinCut", "size": 7840},
+      {"name": "Shortest", "description": "ShortestPaths", "size": 5914},
+      {"name": "Spanning", "description": "SpanningTree", "size": 3416}
+     ]
+    },
+    {
+     "name": "optimiza",
+     "description": "optimization",
+     "children": [
+      {"name": "AspectRa", "description": "AspectRatioBanker", "size": 7074}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "jhgf",
+   "description": "animate",
+   "children": [
+    {"name": "Easing", "description": "Easing", "size": 17010},
+    {"name": "Function", "description": "FunctionSequence", "size": 5842},
+    {
+     "name": "interpol",
+     "description": "interpolate",
+     "children": [
+      {"name": "ArrayInt", "description": "ArrayInterpolator", "size": 1983},
+      {"name": "ColorInt", "description": "ColorInterpolator", "size": 2047},
+      {"name": "DateInte", "description": "DateInterpolator", "size": 1375},
+      {"name": "Interpol", "description": "Interpolator", "size": 8746},
+      {"name": "MatrixIn", "description": "MatrixInterpolator", "size": 2202},
+      {"name": "NumberIn", "description": "NumberInterpolator", "size": 1382},
+      {"name": "ObjectIn", "description": "ObjectInterpolator", "size": 1629},
+      {"name": "PointInt", "description": "PointInterpolator", "size": 1675},
+      {"name": "Rectangl", "description": "RectangleInterpolator", "size": 2042}
+     ]
+    },
+    {"name": "ISchedul", "description": "ISchedulable", "size": 1041},
+    {"name": "Parallel", "description": "Parallel", "size": 5176},
+    {"name": "Pause", "description": "Pause", "size": 449},
+    {"name": "Schedule", "description": "Scheduler", "size": 5593},
+    {"name": "Sequence", "description": "Sequence", "size": 5534},
+    {"name": "Transiti", "description": "Transition", "size": 9201},
+    {"name": "Transer", "description": "Transitioner", "size": 19975},
+    {"name": "TransEve", "description": "TransitionEvent", "size": 1116},
+    {"name": "Tween", "description": "Tween", "size": 6006}
+   ]
+  }
+ ]
+}

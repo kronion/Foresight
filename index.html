@@ -3,26 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
   </head>
 <body>
-  <div id="menu-link"></div>
-  <div id="header">
-    <h1>Hello, Joy!</h1>
-    <h5></h5> 
-  </div>
-  <nav id="foresight-nav">
-    <ul>
-      <li><a href="#">Day</a></li>
-      <li><a href="#">Week</a></li>
-      <li><a href="#">Month</a></li>
-    </ul>
-  </nav>
-  <div id="wrapper">
-    <div class="content">
+  <section class="header">
+    <div id="menu-link">
+      <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x">
+        <span class="lines"></span>
+      </button>
     </div>
-  </div>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+    <div id="menu">
+    </div>
+    <div id="name">
+      <h1>Hello, Joy!</h1>
+      <h5></h5> 
+    </div>
+    <nav id="foresight-nav">
+      <ul>
+        <li class="navbtn" data-pos="0" onclick="navbtn_selected(this)">
+          <a href="#">Day</a>
+        </li>
+        <li class="navbtn" data-pos="1" onclick="navbtn_selected(this)">
+          <a href="#">Week</a>
+        </li>
+        <li class="navbtn" data-pos="2" onclick="navbtn_selected(this)">
+          <a href="#">Month</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <section class="pie"></section>
+  <section class="util"></section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script type="text/javascript" src="public/js/script2.js"></script>
+  <script type="text/javascript" src="public/js/script3.js"></script>
   <script type="text/javascript" src="public/js/script.js"></script>
 </html>

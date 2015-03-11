@@ -1,10 +1,12 @@
-var content = document.getElementsByClassName("content")[0];
-var width = content.offsetWidth;
-var height = content.offsetHeight;
+(function() {
+var pie = document.getElementsByClassName("pie")[0];
+var pieMargins = 60;
+var width = pie.offsetWidth - pieMargins;
+var height = pie.offsetHeight;
 var margin = {top: height/2, right: width/2, bottom: height/2, left: width/2},
     radius = Math.min(margin.top, margin.right, margin.bottom, margin.left) - 10;
 
-function filter_min_arc_size_text(d, i) {return (d.dx*d.depth*radius/3)>14}; 
+// function filter_min_arc_size_text(d, i) {return (d.dx*d.depth*radius/3)>14}; 
 
 var hue = d3.scale.category10();
 
@@ -13,7 +15,7 @@ var luminance = d3.scale.sqrt()
     .clamp(true)
     .range([90, 20]);
 
-var svg = d3.select(".content").append("svg")
+var svg = d3.select(".pie").append("svg")
     .attr("width", margin.left + margin.right)
     .attr("height", margin.top + margin.bottom)
   .append("g")
@@ -30,12 +32,14 @@ var arc = d3.svg.arc()
     .outerRadius(function(d) { return radius / 3 * (d.depth + 1) - 1; });
 
 //Tooltip description
+/*
 var tooltip = d3.select("body")
     .append("div")
     .attr("id", "tooltip")
     .style("position", "absolute")
     .style("z-index", "10")
     .style("opacity", 0);
+*/
 
 function format_number(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -53,6 +57,7 @@ function computeTextRotation(d) {
   return angle;
 }
 
+/*
 function mouseOverArc(d) {
        d3.select(this).attr("stroke","black")
        
@@ -66,15 +71,18 @@ function mouseOutArc(){
   d3.select(this).attr("stroke","")
   return tooltip.style("opacity", 0);
 }
+*/
 
+/*
 function mouseMoveArc (d) {
           return tooltip
             .style("top", (d3.event.pageY-10)+"px")
             .style("left", (d3.event.pageX+10)+"px");
 }
+*/
 
 var root_ = null;
-d3.json("data/flare-labeled.json", function(error, root) {
+d3.json("data/flare-labeled2.json", function(error, root) {
   if (error) return console.warn(error);
   // Compute the initial layout on the entire tree to sum sizes.
   // Also compute the full name and fill color for each node,
@@ -99,8 +107,10 @@ d3.json("data/flare-labeled.json", function(error, root) {
       .attr("r", radius / 3)
       .on("click", zoomOut);
 
+  /*
   center.append("title")
       .text("zoom out");
+  */
       
   var partitioned_data=partition.nodes(root).slice(1)
 
@@ -110,21 +120,21 @@ d3.json("data/flare-labeled.json", function(error, root) {
       .attr("d", arc)
       .style("fill", function(d) { return d.fill; })
       .each(function(d) { this._current = updateArc(d); })
-      .on("click", zoomIn)
-    .on("mouseover", mouseOverArc)
-      .on("mousemove", mouseMoveArc)
-      .on("mouseout", mouseOutArc);
+      .on("click", zoomIn);
+      // .on("mouseover", mouseOverArc)
+      // .on("mousemove", mouseMoveArc)
+      // .on("mouseout", mouseOutArc);
   
       
-  var texts = svg.selectAll("text")
-      .data(partitioned_data)
-    .enter().append("text")
-    .filter(filter_min_arc_size_text)     
-      .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
-    .attr("x", function(d) { return radius / 3 * d.depth; })  
-    .attr("dx", "6") // margin
-      .attr("dy", ".35em") // vertical-align  
-    .text(function(d,i) {return d.name})
+  // var texts = svg.selectAll("text")
+  //     .data(partitioned_data)
+  //   .enter().append("text")
+  //   .filter(filter_min_arc_size_text)     
+  //     .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
+  //   .attr("x", function(d) { return radius / 3 * d.depth; })  
+  //   .attr("dx", "6") // margin
+  //     .attr("dy", ".35em") // vertical-align  
+  //   .text(function(d,i) {return d.name})
 
   function zoomIn(p) {
     if (p.depth > 1) p = p.parent;
@@ -181,9 +191,9 @@ d3.json("data/flare-labeled.json", function(error, root) {
           .style("fill-opacity", function(d) { return d.depth === 2 - (root === p) ? 1 : 0; })
           .style("fill", function(d) { return d.fill; })
           .on("click", zoomIn)
-       .on("mouseover", mouseOverArc)
-         .on("mousemove", mouseMoveArc)
-         .on("mouseout", mouseOutArc)
+         // .on("mouseover", mouseOverArc)
+         // .on("mousemove", mouseMoveArc)
+         // .on("mouseout", mouseOutArc)
           .each(function(d) { this._current = enterArc(d); });
 
     
@@ -196,21 +206,21 @@ d3.json("data/flare-labeled.json", function(error, root) {
     });
     
     
-   texts = texts.data(new_data, function(d) { return d.key; })
+   // texts = texts.data(new_data, function(d) { return d.key; })
    
-   texts.exit()
-           .remove()    
-    texts.enter()
-            .append("text")
+   // texts.exit()
+   //         .remove()    
+   //  texts.enter()
+   //          .append("text")
         
-    texts.style("opacity", 0)
-      .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
-    .attr("x", function(d) { return radius / 3 * d.depth; })  
-    .attr("dx", "6") // margin
-      .attr("dy", ".35em") // vertical-align
-      .filter(filter_min_arc_size_text)     
-      .text(function(d,i) {return d.name})
-    .transition().delay(750).style("opacity", 1)
+   //  texts.style("opacity", 0)
+   //    .attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; })
+   //  .attr("x", function(d) { return radius / 3 * d.depth; })  
+   //  .attr("dx", "6") // margin
+   //    .attr("dy", ".35em") // vertical-align
+   //    .filter(filter_min_arc_size_text)     
+   //    .text(function(d,i) {return d.name})
+   //  .transition().delay(750).style("opacity", 1)
         
      
   }
@@ -244,13 +254,54 @@ function updateArc(d) {
 
 d3.select(self.frameElement).style("height", margin.top + margin.bottom + "px");
 
-// Date formatting
+})();
+
+/*------------------------------------------------------------------------------
+ * UI functionality
+ *----------------------------------------------------------------------------*/
+
+/* Date formatting */
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 var today = new Date();
 var dd = today.getDate();
-var mm = today.getMonth() + 1;
+var mm = today.getMonth();
 var yyyy = today.getFullYear();
 var dateString = "Today is " + monthNames[mm] + " " + dd + ", " + yyyy;
-document.getElementById("header").children[1].innerText = dateString;
+document.getElementById("name").children[1].innerText = dateString;
+
+var navbtn_selected = function(e) {
+  var navbtns = document.getElementsByClassName("navbtn");
+  var pies = document.getElementsByTagName("svg");
+  for (var i = 0; i < navbtns.length; i++) {
+    if (e.dataset.pos === i.toString()) {
+      e.style.borderBottomColor = "#000";
+      pies[i].style.display = "block";
+    }
+    else {
+      navbtns[i].style.borderBottomColor = "#FEDD56";
+      pies[i].style.display = "none";
+    }
+  }
+};
+
+var anchor = document.querySelectorAll('button');
+  
+var menu = document.getElementById('menu');
+[].forEach.call(anchor, function(anchor) {
+  var open = false;
+  anchor.onclick = function(event){
+    event.preventDefault();
+    if(!open){
+      this.classList.add('close');
+      menu.classList.add('close');
+      open = true;
+    }
+    else{
+      this.classList.remove('close');
+      menu.classList.remove('close');
+      open = false;
+    }
+  }
+}); 
